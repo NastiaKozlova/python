@@ -1,0 +1,10 @@
+fasta=open('/home/nastia/fasta_end.txt','r')
+finish=open('/home/nastia/fasta.fasta','w')
+strline=fasta.readline()
+while len(strline)>0:
+    n=strline.find('\t')
+    m=strline.rfind('\t')
+    finish.write('>'+strline[0:n]+'\n'+strline[n+1:m]+'\n')
+    strline=fasta.readline()
+fasta.close()
+finish.close()
