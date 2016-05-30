@@ -5,9 +5,6 @@ from dot_prep import *
 import shutil
 from make_fin_n import *
 from runs_dot_finish import *
-#export DOT_ROOT=$HOME/dot2.0
-#source $DOT_ROOT/bin/share/dot2.setup.bash
-#python /home/nastia/Desktop/python_ptograms/dot/60/for_dot_60.py
 part_prot = '/home/nastia/Desktop/dot_60/1.10.10.60/'
 list1 = os.listdir(part_prot)
 for prot in list1:
