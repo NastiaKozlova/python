@@ -2,16 +2,9 @@ import os
 from dna import *
 from dot_run import *
 from dot_prep import *
-#from protein import *
-#from copy_dna_60 import *
-#from grid_test import *
 import shutil
 from def_copy_runs_1 import *
 from make_fin import *
-#export DOT_ROOT=$HOME/dot2.0
-#source $DOT_ROOT/bin/share/dot2.setup.bash
-#python /home/nastia/Desktop/python_ptograms/dot/60/for_dot_60_1.py
-nope=open('/home/nastia/Desktop/dot_60/1.10.10.60.txt','w')
 part_prot = '/home/nastia/Desktop/dot_60/1.10.10.60/'
 diret='/home/nastia/1.10.10.60_1/'
 list1 = os.listdir(part_prot)
@@ -20,8 +13,6 @@ for prot in list1:
     ditet=part_prot+prot+'/'+prot+'_n/coords/'
     ditec=part_prot+prot+'/'+prot+'_1/'
     na=str(1)
-    #pna=direk+prot+'n.pdb'
-    #print('no')
     #if os.path.exists(direk) and not os.path.exists(ditec+'latest/pdb/') and os.path.exists(ditet):
     if os.path.exists(direk) and os.path.exists(ditec+'latest/pdb/') :
         print(prot)
@@ -37,6 +28,3 @@ for prot in list1:
         #os.chdir (ditec)
         #dot_run(ditec,prot,na)
         make_fin(ditec,prot,na)
-    else:
-        nope.write(prot+'\n')
-nope.close()
