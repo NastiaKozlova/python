@@ -1,24 +1,15 @@
+output_file='/home/nastia/output_fasta_global.txt'
+in_file='/home/nastia/fasta_end.txt'
 import Bio
 import Bio.Seq
 import Bio.Alphabet
 import Bio.pairwise2
-#import Bio.Blast
-#help(Bio.Blast)
-#my_seq = Bio.Seq.Seq("AGTACACTGGT", Bio.Alphabet.IUPAC.unambiguous_dna)
-#script = jedi.Script(source, 3, len('datetime.da'), 'example.py')
-#file_seq=open('/home/nastia/Desktop/python_ptograms/dna/dna.txt')
-output_file='/home/nastia/output_fasta_global.txt'
-in_file='/home/nastia/fasta_end.txt'
 output_fasta = open(output_file, 'w')
-#from Bio import pairwise2
-#from Bio.pairwise2 import format_alignment
 fasta = open(in_file, 'r')
 strline = fasta.readline()
-
 seq_2=''
 while len(strline)>0:
     m = strline.find('\t')
-
     n=strline.rfind('\t')
     my_seq_1=strline[m+1:n]
     my_seq_2=strline[n+1:-1]
@@ -31,31 +22,20 @@ while len(strline)>0:
         output_fasta.write(Bio.pairwise2.format_alignment(*a))
     strline=fasta.readline()
 output_fasta.write('> test\n')
-#for a in Bio.pairwise2.align.localxx(seq_2, seq_2):
-for a in Bio.pairwise2.align.globalxx(seq_2, seq_2):
-
-    output_fasta.write(Bio.pairwise2.format_alignment(*a))
 output_fasta.close()
 fasta.close()
-print('mam')
 finish_file=open('/home/nastia/nastia.txt','w')
 test=open(output_file,'r')
 strline=test.readline()
 m=0
 while not len(strline)==0:
-
     if strline.find('>')==0:
         finish_file.write('\n'+strline[0:-1]+'\t')
         m=0
     else:
         if strline.find('Score')>-1:
-
             if m==0:
                 finish_file.write(strline[8:-1]+'\t')
                 m=m+1
     strline=test.readline()
 test.close()
-print('hope')
-#finish_file()
-#import Bio.SeqRecord
-#help(Bio.SeqRecord.SeqRecord)
